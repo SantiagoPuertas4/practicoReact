@@ -1,4 +1,4 @@
-import Msg from "../components/Msg/Msg";
+import Msg from "../components/Ejercicio2/Msg/Msg";
 
 const Ejercicio2View = () => {
   return (

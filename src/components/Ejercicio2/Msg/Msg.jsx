@@ -11,5 +11,5 @@ const Msg = (props) => {
 export default Msg;
 
 Msg.propTypes = {
-  mensaje: PropTypes.array.isRequired,
+  mensaje: PropTypes.string.isRequired,
 };
