@@ -1,4 +1,10 @@
+import Msg from "../components/Msg/Msg";
+
 const Ejercicio2View = () => {
-  return <div>Ejercicio2View</div>;
+  return (
+    <div>
+      <Msg mensaje={"Pepe"} />
+    </div>
+  );
 };
 export default Ejercicio2View;
