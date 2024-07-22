@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 const Msg = (props) => {
   const { mensaje } = props;
-
   const [msgCompleto, setmsgCompleto] = useState(mensaje);
 
   const handleChange = () => {
@@ -21,5 +20,5 @@ const Msg = (props) => {
 export default Msg;
 
 Msg.propTypes = {
-  mensaje: PropTypes.array.isRequired,
+  mensaje: PropTypes.string.isRequired,
 };
