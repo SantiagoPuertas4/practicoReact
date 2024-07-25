@@ -8,9 +8,9 @@ const Tareas = (props) => {
   };
 
   return (
-    <li className="list-group-item d-flex align-items-center justify-content-between">
+    <li className="list-group-item d-flex align-items-center justify-content-between w-100">
       <p>{tarea.text}</p>
-      <button className="btn btn-danger" onClick={handleDelete}>
+      <button className="btn btn-danger ms-2" onClick={handleDelete}>
         X
       </button>
     </li>

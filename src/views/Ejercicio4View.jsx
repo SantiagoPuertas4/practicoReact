@@ -24,29 +24,31 @@ const Ejercicio4View = () => {
   return (
     <>
       <div className="mt-5 pt-3">
-        <div className="d-flex flex-column align-items-center border">
+        <div className="d-flex flex-column align-items-center">
           <div>
             <h1>Bienvenido</h1>
           </div>
-          <div className="d-flex flex-column align-items-start">
-            <form onSubmit={handleSubmit}>
-              <label className="form-label" htmlFor="inputTarea">
+          <div className="d-flex flex-column align-items-center w-100">
+            <form className="d-flex flex-column" onSubmit={handleSubmit}>
+              <label className="form-label text-center" htmlFor="inputTarea">
                 Tarea a agregar
               </label>
-              <input
-                id="inputTarea"
-                className="form-control"
-                type="text"
-                placeholder="La tarea"
-                ref={inputTarea}
-              />
-              <button type="submit" className="btn btn-primary mt-1">
-                Agregar
-              </button>
+              <div className="d-flex">
+                <input
+                  id="inputTarea"
+                  className="form-control"
+                  type="text"
+                  placeholder="La tarea"
+                  ref={inputTarea}
+                />
+                <button type="submit" className="btn btn-primary ms-1">
+                  Agregar
+                </button>
+              </div>
             </form>
-            <ul className="list-group my-2">
+            <ul className="list-group my-2 container p-0">
               {tareas.length === 0 && (
-                <p className="text-center">No hay tareas</p>
+                <p className="text-center text-break">No hay tareas</p>
               )}
               {tareas.map((tarea) => (
                 <Tareas key={tarea.id} tarea={tarea} setTareas={setTareas} />
