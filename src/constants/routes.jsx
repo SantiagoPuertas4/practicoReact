@@ -3,6 +3,7 @@ import RootView from "../views/RootView";
 import E1View from "../views/Ejercicio1View";
 import MainView from "../views/MainView";
 import Ejercicio4View from "../views/Ejercicio4View";
+import Ejercicio5View from "../views/Ejercicio5View";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
       {
         path: "ejercicio4",
         element: <Ejercicio4View />,
+      },
+      {
+        path: "ejercicio5",
+        element: <Ejercicio5View />,
       },
     ],
   },
