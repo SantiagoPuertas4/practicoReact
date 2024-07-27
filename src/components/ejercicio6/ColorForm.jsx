@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import PropTypes from "prop-types";
 import "./styles.css";
+import { randomId } from "../../helpers/helpers";
 
 const ColorForm = (props) => {
   const { setColors } = props;
@@ -14,6 +15,7 @@ const ColorForm = (props) => {
     setColors((prevColors) => [
       ...prevColors,
       {
+        id: randomId(),
         value: color,
       },
     ]);
