@@ -11,6 +11,6 @@ const EmpleadoList = (props) => {
   );
 };
 export default EmpleadoList;
-EmpleadoRow.propTypes = {
+EmpleadoList.propTypes = {
   listaEmpleados: PropTypes.array.isRequired,
 };
