@@ -1,4 +1,5 @@
 import EmpleadoList from "../components/ejercicio7/EmpleadoList";
+import "../components/ejercicio7/styles.css";
 
 const Ejercicio7View = () => {
   const listaEmpleados = [
@@ -68,7 +69,7 @@ const Ejercicio7View = () => {
   ];
 
   return (
-    <div className="mt-5 pt-3 container">
+    <div className="mt-5 mb-3 pt-3 container listaCompleta">
       <EmpleadoList listaEmpleados={listaEmpleados} />
     </div>
   );
