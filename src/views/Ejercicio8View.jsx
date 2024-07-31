@@ -130,7 +130,7 @@ const Ejercicio8View = () => {
                 type="text"
                 className={`form-control ${errors.email ? "is-invalid" : ""}`}
                 id="input-email"
-                placeholder="10101010"
+                placeholder="prueba@dominio.com"
                 {...register("email", {
                   required: "El campo email es requerido",
                   maxLength: {
