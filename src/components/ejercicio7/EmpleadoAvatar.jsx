@@ -15,5 +15,5 @@ const EmpleadoAvatar = (props) => {
 export default EmpleadoAvatar;
 
 EmpleadoAvatar.propTypes = {
-  empleado: PropTypes.any.isRequired,
+  empleado: PropTypes.object.isRequired,
 };

@@ -29,5 +29,5 @@ const EmpleadoRow = (props) => {
 export default EmpleadoRow;
 
 EmpleadoRow.propTypes = {
-  empleado: PropTypes.any.isRequired,
+  empleado: PropTypes.object.isRequired,
 };
