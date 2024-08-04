@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRef } from "react";
 import { randomId } from "../helpers/helpers";
-import Tareas from "../components/Ejercicio4/Tareas";
+import Tarea from "../components/Ejercicio4/Tarea";
 
 const tareasLS = JSON.parse(localStorage.getItem("tareas")) || [];
 
@@ -16,10 +16,11 @@ const Ejercicio5View = () => {
     const tareaIngresada = inputTarea.current.value;
 
     if (tareaIngresada) {
-      setTareas(
-        (state) => [...state, { id: randomId(), text: tareaIngresada }],
-        e.target.reset()
-      );
+      setTareas((state) => [
+        ...state,
+        { id: randomId(), text: tareaIngresada },
+      ]);
+      e.target.reset();
     }
   };
 
@@ -57,7 +58,7 @@ const Ejercicio5View = () => {
                 <p className="text-center text-break">No hay tareas</p>
               )}
               {tareas.map((tarea) => (
-                <Tareas key={tarea.id} tarea={tarea} setTareas={setTareas} />
+                <Tarea key={tarea.id} tarea={tarea} setTareas={setTareas} />
               ))}
             </ul>
           </div>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useRef } from "react";
 import { randomId } from "../helpers/helpers";
-import Tareas from "../components/Ejercicio4/Tareas";
+import Tarea from "../components/Ejercicio4/Tarea";
 
 const Ejercicio4View = () => {
   const [tareas, setTareas] = useState([]);
@@ -51,7 +51,7 @@ const Ejercicio4View = () => {
                 <p className="text-center text-break">No hay tareas</p>
               )}
               {tareas.map((tarea) => (
-                <Tareas key={tarea.id} tarea={tarea} setTareas={setTareas} />
+                <Tarea key={tarea.id} tarea={tarea} setTareas={setTareas} />
               ))}
             </ul>
           </div>

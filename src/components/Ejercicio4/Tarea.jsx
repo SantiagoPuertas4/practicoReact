@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const Tareas = (props) => {
+const Tarea = (props) => {
   const { tarea, setTareas } = props;
 
   const handleDelete = () => {
@@ -16,9 +16,9 @@ const Tareas = (props) => {
     </li>
   );
 };
-export default Tareas;
+export default Tarea;
 
-Tareas.propTypes = {
+Tarea.propTypes = {
   tarea: PropTypes.object.isRequired,
   setTareas: PropTypes.func.isRequired,
 };
