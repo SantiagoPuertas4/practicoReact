@@ -15,6 +15,6 @@ const ColorList = (props) => {
 export default ColorList;
 
 ColorList.propTypes = {
-  colors: PropTypes.string.isRequired,
+  colors: PropTypes.array.isRequired,
   setColors: PropTypes.func.isRequired,
 };

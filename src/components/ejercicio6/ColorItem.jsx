@@ -35,6 +35,6 @@ const ColorItem = (props) => {
 };
 export default ColorItem;
 ColorItem.propTypes = {
-  color: PropTypes.string.isRequired,
+  color: PropTypes.object.isRequired,
   setColors: PropTypes.func.isRequired,
 };
