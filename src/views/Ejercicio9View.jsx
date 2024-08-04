@@ -20,19 +20,18 @@ const Ejercicio9View = () => {
   } = useForm();
 
   const handleSubmit = (data) => {
-    const { nombre, bicho, fecha, hora, sintomas } = data;
+    const { nombreDuenio, nombre, fecha, hora, sintomas } = data;
     setCitas((prevCitas) => [
       ...prevCitas,
       {
         id: randomId(),
-        nombre: nombre,
-        bicho: bicho,
+        nombreDuenio: nombreDuenio,
+        nombreMascota: nombre,
         fecha: fecha,
         hora: hora,
         sintomas: sintomas,
       },
     ]);
-    console.log(citas);
     reset();
   };
   return (
@@ -57,17 +56,17 @@ const Ejercicio9View = () => {
           <div className="mx-3 d-flex flex-column">
             <section className="row">
               <fieldset className="col-12 col-md-6">
-                <label className="form-label" htmlFor="input-nombre-mascota">
+                <label className="form-label" htmlFor="input-nombre-duenio">
                   Nombre del dueño
                 </label>
                 <input
-                  id="input-nombre-mascota"
+                  id="input-nombre-duenio"
                   className={`form-control ${
-                    errors.nombreMascota ? "is-invalid" : ""
+                    errors.nombreDuenio ? "is-invalid" : ""
                   }`}
                   type="text"
                   placeholder="Eze"
-                  {...register("nombreMascota", {
+                  {...register("nombreDuenio", {
                     required: "El campo es requerido",
                     maxLength: {
                       value: 50,
@@ -86,7 +85,7 @@ const Ejercicio9View = () => {
                 />
                 <div className="invalid-feedback">
                   <span className="badge text-bg-danger">
-                    {errors.nombreMascota?.message}
+                    {errors.nombreDuenio?.message}
                   </span>
                 </div>
               </fieldset>
@@ -201,8 +200,10 @@ const Ejercicio9View = () => {
           </div>
         </form>
       </div>
-      <div className="container">
-        <Cita />
+      <div className="container row d-flex justify-content-center">
+        {citas.map((cita) => (
+          <Cita key={cita.id} cita={cita} setCitas={setCitas} />
+        ))}
       </div>
     </div>
   );
