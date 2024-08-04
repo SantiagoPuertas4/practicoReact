@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { randomId } from "../helpers/helpers";
 import Cita from "../components/ejercicio9/Cita";
+import "../components/ejercicio9/styles.css";
 
 const citasLS = JSON.parse(localStorage.getItem("citas")) || [];
 

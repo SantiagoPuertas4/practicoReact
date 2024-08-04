@@ -1,7 +1,10 @@
 import PropTypes from "prop-types";
+import { randomAvatar } from "../../helpers/helpers";
 
 const Cita = (props) => {
   const { cita, setCitas } = props;
+
+  const randomAvatarURL = randomAvatar();
 
   const handleDelete = () => {
     setCitas((citasPrevias) =>
@@ -12,10 +15,18 @@ const Cita = (props) => {
   return (
     <div className="col-12 col-md-4 my-2">
       <div className="card p-2 bg-dark-subtle">
-        <div></div>
-        <div className="mt-3 px-2">
-          <h4 className="m-0">Mascota: {cita.nombreMascota}</h4>
-          <h6>Dueño: {cita.nombreDuenio}</h6>
+        <div className="d-flex">
+          <div className="w-25">
+            <img
+              className="avatar mb-2"
+              src={randomAvatarURL}
+              alt={cita.nombreMascota}
+            />
+          </div>
+          <div className="mt-3 px-2">
+            <h4 className="m-0">Mascota: {cita.nombreMascota}</h4>
+            <h6>Dueño: {cita.nombreDuenio}</h6>
+          </div>
         </div>
         <hr className="m-0" />
         <div className=" w-100 px-2 my-2">
