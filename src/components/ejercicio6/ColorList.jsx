@@ -5,7 +5,7 @@ const ColorList = (props) => {
   const { colors, setColors } = props;
 
   return (
-    <div className="container row my-2 d-flex justify-content-center">
+    <div className="container row my-2 d-flex justify-content-center m-0">
       {colors.map((color) => (
         <ColorItem key={color.id} color={color} setColors={setColors} />
       ))}

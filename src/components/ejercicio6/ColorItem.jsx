@@ -15,7 +15,7 @@ const ColorItem = (props) => {
   };
 
   return (
-    <div className="col-12 col-md-4 col-lg-3 my-1 ">
+    <div className="col-12 col-md-4 col-lg-3 my-1">
       <div className="card p-2 bg-dark-subtle">
         <h3>{color.value}</h3>
         <div className="d-flex justify-content-center my-1 bg-white">
