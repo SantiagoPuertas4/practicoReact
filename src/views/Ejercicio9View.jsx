@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { randomId } from "../helpers/helpers";
+import Cita from "../components/ejercicio9/Cita";
 
 const citasLS = JSON.parse(localStorage.getItem("citas")) || [];
 
@@ -17,7 +19,20 @@ const Ejercicio9View = () => {
     handleSubmit: onSubmitRHF,
   } = useForm();
 
-  const handleSubmit = () => {
+  const handleSubmit = (data) => {
+    const { nombre, bicho, fecha, hora, sintomas } = data;
+    setCitas((prevCitas) => [
+      ...prevCitas,
+      {
+        id: randomId(),
+        nombre: nombre,
+        bicho: bicho,
+        fecha: fecha,
+        hora: hora,
+        sintomas: sintomas,
+      },
+    ]);
+    console.log(citas);
     reset();
   };
   return (
@@ -186,7 +201,9 @@ const Ejercicio9View = () => {
           </div>
         </form>
       </div>
-      <div className="container">{citas.map}</div>
+      <div className="container">
+        <Cita />
+      </div>
     </div>
   );
 };
