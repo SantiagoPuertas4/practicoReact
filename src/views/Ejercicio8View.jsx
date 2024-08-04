@@ -11,6 +11,7 @@ const Ejercicio8View = () => {
 
   const handleSubmit = () => {
     reset();
+    alert("Datos enviados!");
   };
 
   return (
@@ -22,6 +23,7 @@ const Ejercicio8View = () => {
         <form
           className="w-100 d-flex flex-column"
           onSubmit={onSubmitRHF(handleSubmit)}
+          onError={alert("Debes completar todos los campos")}
         >
           <section className="d-flex flex-row titulo flex-wrap w-100">
             <fieldset className="col-12 col-md-6 p-2">
@@ -34,7 +36,7 @@ const Ejercicio8View = () => {
                 id="input-nombre"
                 placeholder="Pepe"
                 {...register("nombre", {
-                  required: "El campo es requerido",
+                  required: "El campo nombre es requerido",
                   maxLength: {
                     value: 50,
                     message: "El nombre no puede tener mas de 50 caracteres",
@@ -47,6 +49,7 @@ const Ejercicio8View = () => {
                     value: /^[a-zA-ZÁÉÍÓÚáéíóúÜüÑñ\s]+$/,
                     message:
                       "El nombre debe tener unicamente siglas y espacios",
+                    alert: "Si",
                   },
                 })}
               />
@@ -68,7 +71,7 @@ const Ejercicio8View = () => {
                 id="input-apellido"
                 placeholder="Pachado"
                 {...register("apellido", {
-                  required: "El campo es requerido",
+                  required: "El campo apellido es requerido",
                   maxLength: {
                     value: 50,
                     message: "El apellido no puede tener mas de 50 caracteres",
