@@ -7,9 +7,9 @@ const EmpleadoAvatar = (props) => {
   const randomAvatarURL = randomAvatar();
 
   return (
-    <div className="w-25">
+    <section className="w-25">
       <img src={randomAvatarURL} alt={empleado.fullName} />
-    </div>
+    </section>
   );
 };
 export default EmpleadoAvatar;

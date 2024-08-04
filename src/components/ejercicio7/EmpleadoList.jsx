@@ -4,11 +4,11 @@ import PropTypes from "prop-types";
 const EmpleadoList = (props) => {
   const { listaEmpleados } = props;
   return (
-    <div className="listaEmpleados">
+    <section className="listaEmpleados">
       {listaEmpleados.map((empleado) => (
         <EmpleadoRow key={empleado.id} empleado={empleado} />
       ))}
-    </div>
+    </section>
   );
 };
 export default EmpleadoList;
