@@ -200,7 +200,7 @@ const Ejercicio9View = () => {
           </div>
         </form>
       </div>
-      <div className="container row d-flex justify-content-center p-0 m-0">
+      <div className="container d-flex justify-content-center p-0 m-0 row">
         {citas.map((cita) => (
           <Cita key={cita.id} cita={cita} setCitas={setCitas} />
         ))}
