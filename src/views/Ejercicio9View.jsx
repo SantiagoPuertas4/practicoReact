@@ -22,7 +22,7 @@ const Ejercicio9View = () => {
         <hr />
         <div>
           <h4 className="text-center">
-            Llenar el formulario para crear una cita
+            Llene el formulario para crear una cita
           </h4>
         </div>
         <hr />
