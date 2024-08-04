@@ -1,6 +1,15 @@
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
+const citasLS = JSON.parse(localStorage.getItem("citas")) || [];
+
 const Ejercicio9View = () => {
+  const [citas, setCitas] = useState(citasLS);
+
+  useEffect(() => {
+    localStorage.setItem("citas", JSON.stringify(citas));
+  }, [citas]);
+
   const {
     register,
     reset,
@@ -177,6 +186,7 @@ const Ejercicio9View = () => {
           </div>
         </form>
       </div>
+      <div className="container">{citas.map}</div>
     </div>
   );
 };
