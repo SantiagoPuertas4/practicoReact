@@ -35,7 +35,7 @@ const Ejercicio9View = () => {
     reset();
   };
   return (
-    <div className="mt-5 pt-3 mb-2">
+    <div className="mt-5 pt-3 pb-2 mb-2">
       <div className="container bg-dark-subtle rounded-2">
         <div>
           <h2 className="text-center pt-2">
@@ -141,7 +141,7 @@ const Ejercicio9View = () => {
                   </span>
                 </div>
               </fieldset>
-              <fieldset className="col-12 col-md-6  mt-3">
+              <fieldset className="col-12 col-md-6 mt-3">
                 <label className="form-label" htmlFor="input-hora">
                   Hora de la cita
                 </label>
@@ -200,7 +200,7 @@ const Ejercicio9View = () => {
           </div>
         </form>
       </div>
-      <div className="container row d-flex justify-content-center">
+      <div className="container row d-flex justify-content-center p-0 m-0">
         {citas.map((cita) => (
           <Cita key={cita.id} cita={cita} setCitas={setCitas} />
         ))}

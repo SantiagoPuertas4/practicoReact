@@ -10,7 +10,7 @@ const Cita = (props) => {
   };
 
   return (
-    <div className="col-12 col-md-4 col-lg-3 m-3 rounded-2 border p-0 bg-dark-subtle">
+    <div className="col-12 col-lg-3 col-md-4 m-2 rounded-2 p-0 bg-dark-subtle">
       <div className="mt-3 px-2">
         <p>Nombre: {cita.nombreMascota}</p>
       </div>
