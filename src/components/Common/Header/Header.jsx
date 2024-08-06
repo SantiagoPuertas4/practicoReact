@@ -117,6 +117,46 @@ const Header = () => {
                 >
                   Ejercicio 9
                 </NavLink>
+                <NavLink
+                  className={({ isActive }) => {
+                    return isActive ? "nav-link active" : "nav-link";
+                  }}
+                  to="/ejercicio10"
+                >
+                  Ejercicio 10
+                </NavLink>
+                <NavLink
+                  className={({ isActive }) => {
+                    return isActive ? "nav-link active" : "nav-link";
+                  }}
+                  to="/ejercicio11"
+                >
+                  Ejercicio 11
+                </NavLink>
+                <NavLink
+                  className={({ isActive }) => {
+                    return isActive ? "nav-link active" : "nav-link";
+                  }}
+                  to="/ejercicio12"
+                >
+                  Ejercicio 12
+                </NavLink>
+                <NavLink
+                  className={({ isActive }) => {
+                    return isActive ? "nav-link active" : "nav-link";
+                  }}
+                  to="/ejercicio13"
+                >
+                  Ejercicio 13
+                </NavLink>
+                <NavLink
+                  className={({ isActive }) => {
+                    return isActive ? "nav-link active" : "nav-link";
+                  }}
+                  to="/ejercicio14"
+                >
+                  Ejercicio 14
+                </NavLink>
               </li>
             </ul>
           </div>
