@@ -1,0 +1,17 @@
+.listaCompleta {
+  max-width: 500px;
+}
+
+.listaEmpleados {
+  background-color: rgb(214, 214, 214);
+  border-radius: 6px;
+}
+
+.rowEmpleado {
+  border-bottom: 1px solid black;
+}
+
+.departamento {
+  background-color: #59bfe0;
+  color: white;
+}
