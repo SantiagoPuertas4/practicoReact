@@ -1,0 +1,12 @@
+.formulario {
+  background-color: #e4e4e4;
+}
+
+.titulo {
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.input {
+  border-radius: 6px !important;
+}
