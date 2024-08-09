@@ -1,4 +1,33 @@
+import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
+import { getNewsFN } from "../components/ejercicio11/news";
+import Titulo from "../components/ejercicio11/Titulo";
+import Formulario from "../components/ejercicio11/Formulario";
+import ListaNoticias from "../components/ejercicio11/ListaNoticias";
+
 const Ejercicio11View = () => {
-  return <div className="mt-5 pt-3 pb-2 mb-2">Ejercicio11View</div>;
+  const {
+    data: news,
+    isLoading,
+    isError,
+    isSuccess,
+  } = useQuery({
+    queryKey: ["news"],
+    queryFn: getNewsFN,
+  });
+
+  return (
+    <div className="mt-5 pt-3 pb-2 mb-2">
+      <section className="bg-secondary rounded-2">
+        <Titulo />
+        <hr />
+        <Formulario />
+      </section>
+
+      <section>
+        <ListaNoticias />
+      </section>
+    </div>
+  );
 };
 export default Ejercicio11View;
