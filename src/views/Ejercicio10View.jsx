@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { randomId } from "../helpers/helpers";
+import Pelicula from "../components/ejercicio10/Pelicula";
 
 const peliculasLS = JSON.parse(localStorage.getItem("peliculas")) || [];
 
@@ -17,14 +19,26 @@ const Ejercicio10View = () => {
     handleSubmit: onSubmitRHF,
   } = useForm();
 
-  const handleSubmit = () => {};
+  const handleSubmit = (data) => {
+    const { nombrePelicula, descripcionPelicula, generoPelicula } = data;
+    setPeliculas((peliculasPrevias) => [
+      ...peliculasPrevias,
+      {
+        id: randomId(),
+        nombre: nombrePelicula,
+        descripcion: descripcionPelicula,
+        genero: generoPelicula,
+      },
+    ]);
+    reset();
+  };
 
   return (
     <div className="mt-5 pt-3 pb-2 mb-2">
-      <div className="container bg-dark-subtle rounded-2">
+      <div className="container bg-dark-subtle rounded-2 mb-2">
         <h2 className="text-center">Administrador de peliculas</h2>
         <hr />
-        <form onSubmit={onSubmitRHF(handleSubmit)}>
+        <form className="pb-2" onSubmit={onSubmitRHF(handleSubmit)}>
           <fieldset>
             <label className="form-label" htmlFor="inputNombrePelicula">
               Nombre de la pelicula
@@ -94,13 +108,49 @@ const Ejercicio10View = () => {
               </span>
             </div>
           </fieldset>
-
-          <div>
-            <button type="submit" className="btn btn-success">
+          <fieldset>
+            <label className="form-label" htmlFor="inputGeneroPelicula">
+              Genero de la pelicula
+            </label>
+            <select
+              name="form-select"
+              id="inputGeneroPelicula"
+              className={`form-control ${
+                errors.generoPelicula ? "is-invalid" : ""
+              }`}
+              {...register("generoPelicula", {
+                required: "El campo genero es requerido",
+              })}
+              defaultValue={""}
+            >
+              <option value="" hidden disabled>
+                Abre el menu
+              </option>
+              <option value="Comedia">Comedia</option>
+              <option value="Drama">Drama</option>
+              <option value="Infantil">Infantil</option>
+            </select>
+            <div className="invalid-feedback">
+              <span className="badge text-bg-danger">
+                {errors.generoPelicula?.message}
+              </span>
+            </div>
+          </fieldset>
+          <div className="mt-2 d-flex flex-column">
+            <button type="submit" className="btn btn-success align-self-end">
               Enviar
             </button>
           </div>
         </form>
+      </div>
+      <div className="row">
+        {peliculas.map((pelicula) => (
+          <Pelicula
+            key={pelicula.id}
+            pelicula={pelicula}
+            setPeliculas={setPeliculas}
+          />
+        ))}
       </div>
     </div>
   );
