@@ -1,25 +1,19 @@
 import PropTypes from "prop-types";
 import Noticia from "./Noticia";
+import { randomId } from "../../helpers/helpers";
+import LoadingArticles from "./LoadingArticles";
+import ErrorArticles from "./ErrorArticles";
 
 const ListaNoticias = (props) => {
   const { isLoading, isError, isSuccess, news } = props;
-  console.log(news);
-
-  // if (isSuccess) {
-  //   return (
-  //     <div>
-  //       {news.articles.map((article) => (
-  //         <Noticia key={article.source.id} article={article} />
-  //       ))}
-  //     </div>
-  //   );
-  // }
 
   return (
     <div>
+      {isLoading && <LoadingArticles />}
+      {isError && <ErrorArticles />}
       {isSuccess &&
         news.articles.map((article) => (
-          <Noticia key={article.source.id} article={article} />
+          <Noticia key={randomId()} article={article} />
         ))}
     </div>
   );

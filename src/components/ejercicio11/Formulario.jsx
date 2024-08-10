@@ -1,10 +1,8 @@
 import { useQueryClient } from "@tanstack/react-query";
-import PropTypes from "prop-types";
 import { getNewsFN } from "./news";
+import { useForm } from "react-hook-form";
 
-const Formulario = (props) => {
-  const { register, reset, errors, onSubmitRHF } = props;
-
+const Formulario = () => {
   const queryClient = useQueryClient();
 
   const handleSubmit = async (data) => {
@@ -16,11 +14,18 @@ const Formulario = (props) => {
     reset();
   };
 
+  const {
+    register,
+    reset,
+    formState: { errors },
+    handleSubmit: onSubmitRHF,
+  } = useForm();
+
   return (
     <div>
-      <form onSubmit={onSubmitRHF(handleSubmit)}>
+      <form className="p-3" onSubmit={onSubmitRHF(handleSubmit)}>
         <fieldset>
-          <label className="form-label" htmlFor="inputBusqueda">
+          <label className="form-label text-white m-0" htmlFor="inputBusqueda">
             Termino a buscar
           </label>
           <input
@@ -49,7 +54,7 @@ const Formulario = (props) => {
             </span>
           </div>
         </fieldset>
-        <div>
+        <div className="d-flex align-items-end flex-column mt-2">
           <button type="submit" className="btn btn-success">
             Enviar
           </button>
@@ -59,9 +64,3 @@ const Formulario = (props) => {
   );
 };
 export default Formulario;
-Formulario.propTypes = {
-  register: PropTypes.func.isRequired,
-  reset: PropTypes.func.isRequired,
-  errors: PropTypes.object.isRequired,
-  onSubmitRHF: PropTypes.func.isRequired,
-};
