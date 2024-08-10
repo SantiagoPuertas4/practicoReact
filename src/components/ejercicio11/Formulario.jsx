@@ -1,5 +1,5 @@
 import { useQueryClient } from "@tanstack/react-query";
-import { getNewsFN } from "./news";
+import { getNewsFN } from "../../api/news";
 import { useForm } from "react-hook-form";
 
 const Formulario = () => {

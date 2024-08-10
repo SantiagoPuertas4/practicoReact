@@ -6,9 +6,10 @@ import ErrorArticles from "./ErrorArticles";
 
 const ListaNoticias = (props) => {
   const { isLoading, isError, isSuccess, news } = props;
+  console.log(news);
 
   return (
-    <div>
+    <div className="row">
       {isLoading && <LoadingArticles />}
       {isError && <ErrorArticles />}
       {isSuccess &&

@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getNewsFN } from "../components/ejercicio11/news";
+import { getNewsFN } from "../api/news";
 import Titulo from "../components/ejercicio11/Titulo";
 import Formulario from "../components/ejercicio11/Formulario";
 import ListaNoticias from "../components/ejercicio11/ListaNoticias";
