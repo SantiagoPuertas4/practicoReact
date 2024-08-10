@@ -11,6 +11,8 @@ export const getNewsFN = async (query = "") => {
 };
 
 export const getNews12FN = async (categoria, pais) => {
+  console.log(categoria);
+  console.log(pais);
   const res = await fetch(
     `https://newsapi.org/v2/top-headlines?category=${categoria}&country=${pais}&pageSize=15&apiKey=${NEWS_API_KEY}`
   );

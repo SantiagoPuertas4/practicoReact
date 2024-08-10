@@ -1,7 +1,16 @@
+import { useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
+import { getNews12FN } from "../../api/news";
 
 const Formulario = () => {
-  const handleSubmit = () => {
+  const queryClient = useQueryClient();
+
+  const handleSubmit = async (data) => {
+    const { inputCategoria, inputPais } = data;
+    await queryClient.fetchQuery({
+      queryKey: ["news"],
+      queryFn: () => getNews12FN(inputCategoria, inputPais),
+    });
     reset();
   };
 
@@ -16,32 +25,32 @@ const Formulario = () => {
     <div>
       <form className="p-3" onSubmit={onSubmitRHF(handleSubmit)}>
         <fieldset>
-          <label className="form-label text-white m-0" htmlFor="inputBusqueda">
-            <p className="m-0 text-dark">Termino a buscar</p>
+          <label className="form-label" htmlFor="inputCategoria">
+            Ingresa la categoria
           </label>
-          <input
-            className={`form-control ${errors.busqueda ? "is-invalid" : ""}`}
-            type="text"
-            id="inputBusqueda"
-            {...register("busqueda", {
-              required: "El campo es requerido",
-              maxLength: {
-                value: 20,
-                message: "El campo no debe tener mas de 20 caracteres",
-              },
-              minLength: {
-                value: 1,
-                message: "El campo no debe tener menos de 3 caracteres",
-              },
-              pattern: {
-                value: /^[a-zA-Z]+$/,
-                message: "El campo solo acepta letras",
-              },
+          <select
+            className={`form-select ${
+              errors.inputCategoria ? "is-invalid" : ""
+            }`}
+            id="inputCategoria"
+            {...register("inputCategoria", {
+              required: "El campo categoria es requerido",
             })}
-          />
+            defaultValue=""
+          >
+            <option value="" hidden disabled>
+              Abre el menu
+            </option>
+            <option value="business">Negocios</option>
+            <option value="general">General</option>
+            <option value="health">Salud</option>
+            <option value="science">Ciencia</option>
+            <option value="sport">Deporte</option>
+            <option value="technology">Tecnologia</option>
+          </select>
           <div className="invalid-feedback">
             <span className="badge text-bg-danger">
-              {errors.busqueda?.message}
+              {errors.inputCategoria?.message}
             </span>
           </div>
         </fieldset>
@@ -49,12 +58,29 @@ const Formulario = () => {
           <label className="form-label" htmlFor="inputPais">
             Ingresa el pais
           </label>
-          <select className="form-select" name="" id="inputPais">
-            <option value=""></option>
+          <select
+            className={`form-select ${errors.inputPais ? "is-invalid" : ""}`}
+            id="inputPais"
+            {...register("inputPais", {
+              required: "El campo pais es requerido",
+            })}
+            defaultValue=""
+          >
+            <option value="" hidden disabled>
+              Abre el menu
+            </option>
+            <option value="ar">Argentina</option>
+            <option value="us">Estados Unidos</option>
+            <option value="es">España</option>
+            <option value="it">Italia</option>
+            <option value="mx">Mexico</option>
+            <option value="jp">Japon</option>
+            <option value="br">Brasil</option>
+            <option value="ch">Suiza</option>
           </select>
           <div className="invalid-feedback">
             <span className="badge text-bg-danger">
-              {errors.busqueda?.message}
+              {errors.inputPais?.message}
             </span>
           </div>
         </fieldset>
