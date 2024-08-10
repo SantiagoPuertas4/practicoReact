@@ -113,9 +113,8 @@ const Ejercicio10View = () => {
               Genero de la pelicula
             </label>
             <select
-              name="form-select"
               id="inputGeneroPelicula"
-              className={`form-control ${
+              className={`form-select ${
                 errors.generoPelicula ? "is-invalid" : ""
               }`}
               {...register("generoPelicula", {
