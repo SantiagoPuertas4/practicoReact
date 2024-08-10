@@ -46,8 +46,10 @@ const Formulario = () => {
           </div>
         </fieldset>
         <fieldset>
-          <label className="form-label" htmlFor="inputPais"></label>
-          <select name="" id="inputPais">
+          <label className="form-label" htmlFor="inputPais">
+            Ingresa el pais
+          </label>
+          <select className="form-select" name="" id="inputPais">
             <option value=""></option>
           </select>
           <div className="invalid-feedback">
