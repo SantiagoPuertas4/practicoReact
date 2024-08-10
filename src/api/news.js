@@ -9,3 +9,13 @@ export const getNewsFN = async (query = "") => {
   if (!res.ok) throw new Error("Ocurrio un error");
   return data;
 };
+
+export const getNews12FN = async (categoria, pais) => {
+  const res = await fetch(
+    `https://newsapi.org/v2/top-headlines?category=${categoria}&country=${pais}&pageSize=15&apiKey=${NEWS_API_KEY}`
+  );
+  const data = await res.json();
+
+  if (!res.ok) throw new Error("Ocurrio un error");
+  return data;
+};
