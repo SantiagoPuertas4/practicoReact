@@ -1,16 +1,7 @@
-import { useQueryClient } from "@tanstack/react-query";
-import { getNewsFN } from "../../api/news";
 import { useForm } from "react-hook-form";
 
 const Formulario = () => {
-  const queryClient = useQueryClient();
-
-  const handleSubmit = async (data) => {
-    const { busqueda } = data;
-    await queryClient.fetchQuery({
-      queryKey: ["news"],
-      queryFn: () => getNewsFN(busqueda),
-    });
+  const handleSubmit = () => {
     reset();
   };
 
@@ -48,6 +39,17 @@ const Formulario = () => {
               },
             })}
           />
+          <div className="invalid-feedback">
+            <span className="badge text-bg-danger">
+              {errors.busqueda?.message}
+            </span>
+          </div>
+        </fieldset>
+        <fieldset>
+          <label className="form-label" htmlFor="inputPais"></label>
+          <select name="" id="inputPais">
+            <option value=""></option>
+          </select>
           <div className="invalid-feedback">
             <span className="badge text-bg-danger">
               {errors.busqueda?.message}

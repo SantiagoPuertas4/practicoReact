@@ -20,7 +20,7 @@ const Ejercicio11View = () => {
 
   return (
     <div className="mt-5 pt-3 pb-2 mb-2">
-      <section className="bg-secondary rounded-2">
+      <section className="bg-dark-subtle rounded-2">
         <Titulo />
         <hr />
         <Formulario />
