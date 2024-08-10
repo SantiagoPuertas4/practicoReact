@@ -3,21 +3,19 @@ import PropTypes from "prop-types";
 import { getNewsFN } from "./news";
 
 const Formulario = (props) => {
-  const { register, reset, errors, onSubmitRHF, news } = props;
+  const { register, reset, errors, onSubmitRHF } = props;
 
   const queryClient = useQueryClient();
 
   const handleSubmit = async (data) => {
     const { busqueda } = data;
-    const prueba = await getNewsFN(busqueda);
     await queryClient.fetchQuery({
       queryKey: ["news"],
-      queryFn: [getNewsFN(busqueda)],
+      queryFn: () => getNewsFN(busqueda),
     });
-    console.log(news);
-    console.log(prueba);
     reset();
   };
+
   return (
     <div>
       <form onSubmit={onSubmitRHF(handleSubmit)}>
@@ -36,7 +34,7 @@ const Formulario = (props) => {
                 message: "El campo no debe tener mas de 20 caracteres",
               },
               minLength: {
-                value: 3,
+                value: 1,
                 message: "El campo no debe tener menos de 3 caracteres",
               },
               pattern: {
@@ -66,5 +64,4 @@ Formulario.propTypes = {
   reset: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
   onSubmitRHF: PropTypes.func.isRequired,
-  news: PropTypes.object.isRequired,
 };

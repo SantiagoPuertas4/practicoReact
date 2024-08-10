@@ -13,7 +13,9 @@ const Ejercicio11View = () => {
     isSuccess,
   } = useQuery({
     queryKey: ["news"],
-    queryFn: getNewsFN,
+    queryFn: (query) => {
+      getNewsFN(query);
+    },
   });
   const {
     register,
