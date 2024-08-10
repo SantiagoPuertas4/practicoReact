@@ -3,13 +3,18 @@ import PropTypes from "prop-types";
 import { getNewsFN } from "./news";
 
 const Formulario = (props) => {
-  const { register, reset, errors, onSubmitRHF } = props;
+  const { register, reset, errors, onSubmitRHF, news } = props;
 
   const queryClient = useQueryClient();
 
-  const handleSubmit = (data) => {
+  const handleSubmit = async (data) => {
     const { busqueda } = data;
-    const { prueba } = queryClient.fetchQuery(["news", busqueda], getNewsFN);
+    const prueba = await getNewsFN(busqueda);
+    await queryClient.fetchQuery({
+      queryKey: ["news"],
+      queryFn: [getNewsFN(busqueda)],
+    });
+    console.log(news);
     console.log(prueba);
     reset();
   };
@@ -61,4 +66,5 @@ Formulario.propTypes = {
   reset: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
   onSubmitRHF: PropTypes.func.isRequired,
+  news: PropTypes.object.isRequired,
 };
